@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var Course\Backend\Block\Friends $block
+ * @var Magento\Framework\Escaper $escaper
+ */
+
+$friends = $block->getFriends();
+?>
+<?php if (count($friends)) : ?>
+    <table>
+        <thead>
+        <tr>
+            <th><?= $escaper->escapeHtml(__('Name')); ?></th>
+            <th><?= $escaper->escapeHtml(__('Age')); ?></th>
+            <th><?= $escaper->escapeHtml(__('Notes')); ?></th>
+        </tr>
+        </thead>
+        <?php foreach ($friends as $friend) : ?>
+            <?php $friendId = $friend['id']; ?>
+            <tr>
+                <td><?= $escaper->escapeHtml($block->getFriendName($friendId)); ?></td>
+                <td><?= $escaper->escapeHtml($block->getFriendAge($friendId)); ?></td>
+                <td><?= $escaper->escapeHtml($block->getFriendNotes($friendId)); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <div class="message info empty">
+        <?= $escaper->escapeHtml(__('Friends have not found...')); ?>
+    </div>
+<?php endif; ?>

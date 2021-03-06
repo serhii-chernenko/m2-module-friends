@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="course_backend_friends" comment="Course Backend Friends list">
+        <column xsi:type="int" name="id" nullable="false" identity="true" comment="Friend ID"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Friend Name"/>
+        <column xsi:type="smallint" name="age" unsigned="true" nullable="false" identity="false" comment="Friend Age"/>
+        <column xsi:type="text" name="notes" nullable="false" comment="Friend Notes"/>
+        <column xsi:type="timestamp" name="created" on_update="false" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Friend Created"/>
+        <column xsi:type="timestamp" name="updated" on_update="true" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Friend Updated"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
